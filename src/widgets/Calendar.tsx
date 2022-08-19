@@ -415,7 +415,7 @@ async function postData(url = '', data = {}) {
   return response.json(); // parses JSON response into native JavaScript objects
 }
 
-export async function calendarServer (data: z.infer<typeof postbody> | z.infer<typeof rawPostBody>, prisma = new PrismaClient()) {
+export async function calendarEndpoint (data: z.infer<typeof postbody> | z.infer<typeof rawPostBody>, prisma = new PrismaClient()) {
   const full = postbody.safeParse(data)
   const part = rawPostBody.safeParse(data)
   if (full.success || part.success) {
