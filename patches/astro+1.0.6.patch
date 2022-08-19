@@ -1,0 +1,31 @@
+diff --git a/node_modules/astro/dist/runtime/server/render/page.js b/node_modules/astro/dist/runtime/server/render/page.js
+index ce3fe0a..0deff9f 100644
+--- a/node_modules/astro/dist/runtime/server/render/page.js
++++ b/node_modules/astro/dist/runtime/server/render/page.js
+@@ -21,7 +21,7 @@ async function renderPage(result, componentFactory, props, children, streaming)
+     let html = output.toString();
+     if (!/<!doctype html/i.test(html)) {
+       let rest = html;
+-      html = `<!DOCTYPE html>`;
++      // html = `<!DOCTYPE html>`;
+       if (nonAstroPageNeedsHeadInjection(componentFactory)) {
+         for await (let chunk of maybeRenderHead(result)) {
+           html += chunk;
+@@ -53,7 +53,7 @@ async function renderPage(result, componentFactory, props, children, streaming)
+                 let html = stringifyChunk(result, chunk);
+                 if (i === 0) {
+                   if (!/<!doctype html/i.test(html)) {
+-                    controller.enqueue(encoder.encode("<!DOCTYPE html>\n"));
++                    // controller.enqueue(encoder.encode("<!DOCTYPE html>\n"));
+                   }
+                 }
+                 controller.enqueue(encoder.encode(html));
+@@ -74,7 +74,7 @@ async function renderPage(result, componentFactory, props, children, streaming)
+         let html = stringifyChunk(result, chunk);
+         if (i === 0) {
+           if (!/<!doctype html/i.test(html)) {
+-            body += "<!DOCTYPE html>\n";
++            // body += "<!DOCTYPE html>\n";
+           }
+         }
+         body += html;

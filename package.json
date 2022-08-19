@@ -1,0 +1,24 @@
+{
+  "name": "@example/basics",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "postinstall": "patch-package"
+  },
+  "devDependencies": {
+    "@astrojs/preact": "^1.0.2",
+    "@astrojs/tailwind": "^1.0.0",
+    "astro": "^1.0.6",
+    "preact": "^10.10.4",
+    "prisma": "^4.2.1"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.2.1",
+    "zod": "^3.18.0"
+  }
+}

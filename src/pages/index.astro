@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Calendar, calendarServer } from '../mods/Calendar'
+let json
+if (Astro.request.method === 'POST') {
+  const body = await Astro.request.json();
+  await calendarServer(body)
+  Astro.response.headers.set('Content-Type', 'application/json');
+  const json = JSON.stringify({ok: true})
+}
+---
+{ json ? (
+  <Fragment set:html={json}></Fragment>
+) : (
+  <Layout title='hi'>
+    <Calendar client:visible/>
+  </Layout>
+)}
